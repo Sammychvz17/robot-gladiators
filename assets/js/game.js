@@ -4,13 +4,14 @@ var playerAttack = 10;
 var playerMoney = 10;
 
 // You can also log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Anroid", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function() {
+var fight = function(enemyName) {
+     // fight function statements
+
   // Alert players that they are start this round   
   window.alert("Welcome to Robot Gladiators!");
 
@@ -36,7 +37,7 @@ var fight = function() {
   playerHealth = playerHealth - enemyAttack;
   
   //Log a resulting message to the console so we know that it worked
-  console.log(enemyName + " attacked " + playerName + " . " + playerName + " now has " + playerHealth + "health remianing.");
+  console.log( enemyName + " attacked " + playerName + " . " + playerName + " now has " + playerHealth + "health remianing.");
 
   // check player's health 
   if (playerHealth <= 0) {
@@ -46,7 +47,7 @@ var fight = function() {
       window.alert(playerName + " still has " + playerHealth + " Health left.");
   }
   //if player choses to skip 
-} else if (promptFight === "skip" || promptFight === "SKIP") {
+   } else if (promptFight === "skip" || promptFight === "SKIP") {
     //confirm player wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
     //if yes (true), leave fight
@@ -57,11 +58,11 @@ var fight = function() {
     }
     //if no (false), ask questions again by running fight() again
     else {
-        fight();
-    }
-} else {
-    window.alert("You need to choose a valid option. Try again!");
-}
+        fight();}
+    }else { 
+    window.alert("You need to choose a valid option. Try again!");}
 };
+for(var i=0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}
 
-fight();
