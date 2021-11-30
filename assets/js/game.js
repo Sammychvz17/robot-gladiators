@@ -73,6 +73,15 @@ var fight = function(enemyName) {
 // function to start game 
 
 var startGame = function() {
+  // if we're not at the last enemy in the array
+  if (playerHealth > 0 &&i < enemyNames.length - 1) { 
+    var storeConfirm = window.confirm("The fight is over, visit store before the next round?");
+
+   //if yes 
+   if (storeConfirm) {
+    shop();
+   } 
+}
   //reset player stats 
   playerHealth = 100;
   playerAttack = 10;
@@ -109,6 +118,9 @@ endGame();
 startGame();
 
 var endGame = function() {
+  var shop = function() {
+    console.log("entered the shop");
+  };
   if (playerHealth > 0) {
     window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
   } 
